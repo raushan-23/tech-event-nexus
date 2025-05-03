@@ -1,73 +1,115 @@
-# Welcome to your Lovable project
 
-## Project info
+# Tech Event Nexus
 
-**URL**: https://lovable.dev/projects/d0b37fc5-c0c5-420f-aa7e-b1801cb39061
+A comprehensive web platform that aggregates and displays tech events from colleges and universities. The platform allows users to discover hackathons, workshops, and tech talks, as well as submit new events.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Event Dashboard**: View upcoming tech events with detailed information
+- **Event Submission**: Allow users to submit new events with comprehensive details
+- **Advanced Filtering**: Filter events by type, date, college, and keyword search
+- **Responsive Design**: Optimized for all device sizes from mobile to desktop
+- **Interactive UI**: Clean, modern interface with intuitive navigation
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d0b37fc5-c0c5-420f-aa7e-b1801cb39061) and start prompting.
+- **Frontend**: React with TypeScript
+- **Styling**: Tailwind CSS with shadcn/ui components
+- **State Management**: React hooks for local state
+- **Form Handling**: React Hook Form with Zod validation
+- **Date Management**: date-fns for date formatting and manipulation
+- **Routing**: React Router for navigation
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js (v16 or higher)
+- npm or yarn
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+1. Clone the repository
+```bash
+git clone <repository-url>
+cd tech-event-nexus
 ```
 
-**Edit a file directly in GitHub**
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+3. Start the development server
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-**Use GitHub Codespaces**
+4. Open your browser and navigate to `http://localhost:8080`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── components/          # Reusable UI components
+│   ├── EventCard.tsx    # Card component for displaying event
+│   ├── EventDetails.tsx # Modal for showing detailed event information
+│   ├── EventFilters.tsx # Filtering component
+│   ├── EventForm.tsx    # Form for submitting new events
+│   ├── Header.tsx       # Application header
+│   └── Footer.tsx       # Application footer
+├── data/
+│   └── events.ts        # Mock event data
+├── pages/
+│   ├── Index.tsx        # Home page with event listings
+│   └── SubmitEvent.tsx  # Event submission page
+├── types/
+│   └── index.ts         # TypeScript type definitions
+└── App.tsx              # Main application component
+```
 
-This project is built with:
+## Data Model
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+The application uses the following data model for events:
 
-## How can I deploy this project?
+```typescript
+interface Event {
+  id: string;
+  name: string;
+  description: string;
+  date: string; // ISO date string
+  endDate?: string; // For multi-day events
+  location: string;
+  college: string;
+  eventType: 'hackathon' | 'workshop' | 'techtalk';
+  link: string;
+  imageUrl?: string;
+}
+```
 
-Simply open [Lovable](https://lovable.dev/projects/d0b37fc5-c0c5-420f-aa7e-b1801cb39061) and click on Share -> Publish.
+## Future Enhancements
 
-## Can I connect a custom domain to my Lovable project?
+- User authentication for event management
+- Email notifications for upcoming events
+- Calendar integration
+- Event recommendation based on user preferences
+- Advanced web scraping from college websites to auto-populate events
 
-Yes, you can!
+## Screenshots
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+![Dashboard](https://i.imgur.com/example1.png)
+![Event Detail](https://i.imgur.com/example2.png)
+![Event Submission](https://i.imgur.com/example3.png)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details
+
+## Acknowledgments
+
+- Shadcn UI components
+- Unsplash for placeholder images
